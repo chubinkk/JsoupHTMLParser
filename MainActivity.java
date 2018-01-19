@@ -92,16 +92,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         protected String doInBackground(String... strings) {
 
-            // Jsoup을 이용한 맛집 데이터 Pasing하기 try
+            // Jsoup을 이용한 맛집 데이터 Parsing하기 try
             try{
                 //성신여대 맛집,데이트맛집,가족맛집,친구맛집 조회결과
                 String path = "https://store.naver.com/restaurants/list?filterId=s11556056&query=성신여대%20맛집";
                 String date_path = "https://store.naver.com/restaurants/list?context=1&filterId=s11556056&query=성신여대%20맛집";
                 String family_path = "https://store.naver.com/restaurants/list?context=11&filterId=s11556056&query=성신여대%20맛집";
                 String friend_path = "https://store.naver.com/restaurants/list?context=1&filterId=s11556056&query=성신여대%20맛집";
-//                Document document = Jsoup.connect(path).get();
-                Document document = Jsoup.parse(path, "https://store.naver.com/restaurants/list?filterId=s11556056&page=1&query=%EC%84%B1%EC%8B%A0%EC%97%AC%EB%8C%80%20%EB%A7%9B%EC%A7%91");
-
+                Document document = Jsoup.connect(path).get();
                 Elements elements = document.select("span");
                 System.out.println(elements);
                 Element targetElement = elements.get(3);
